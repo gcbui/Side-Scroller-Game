@@ -30,7 +30,7 @@ def draw(x,y,symbol=None,symbols=None):
         current_frame.image = current_frame.image[:i] + symbol + current_frame.image[i + 1:]
     else:
         for symbol in symbols:
-            i = int((height-y-symbol[1]-1) * (width) + (x+symbol[0]-2))
+            i = int((height-y-symbol[1]+1) * (width) + (x+symbol[0]-2))
             current_frame.image = current_frame.image[:i] + symbols[symbol] + current_frame.image[i + 1:]
 
 def render_frame():
