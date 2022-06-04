@@ -1,5 +1,6 @@
 import msvcrt
 import os #for obtaining terminal dimensions   
+from image_loader import ImageLoader
 
 HEIGHT = 0 #40 characters
 WIDTH = 0 #172 characters
@@ -88,10 +89,17 @@ def game():
     character_hash_map = {tuple([2,1]):'|', tuple([8,1]):'|', tuple([3,2]):'_',tuple([4,2]):'_',tuple([5,2]):'|',tuple([6,2]):'_',tuple([7,2]):'_', tuple([1,3]):'|',tuple([5,3]):'|',tuple([9,3]):'|',tuple([2,4]):'_', tuple([3,4]): '_',tuple([4,4]):'_',tuple([5,4]):'|',tuple([6,4]):'_',tuple([7,4]):'_',tuple([8,4]):'_', tuple([5,5]):'>',                        
                           tuple([4,6]):'0',tuple([6,6]):'0',tuple([4,7]):'~',tuple([6,7]):'~'}
     object_hash_map = {tuple([1,1]):'_', tuple([2,1]):'_', tuple([3,1]):'_',tuple([1,2]):'|',tuple([3,2]):'|',tuple([1,3]):'_',tuple([2,3]):'_', tuple([3,3]):'_'}
+    print("--------------LOADING LEVEL--------------")
+    mario_background_image_loader = ImageLoader(path = "image_data/unnamed.png")
+    mario_level_image_loader = ImageLoader(path = "image_data/mario_background.jpg")
+    mario_level_hash_map = mario_level_image_loader.generate_hashmap(invert_colors = True,scale_x=0.5, scale_y=0.3)
+    mario_background_hash_map = mario_background_image_loader.generate_hashmap(invert_colors = True,scale_x=0.5, scale_y=0.5)
     while True:
         update_frame_dimensions()
         current_frame.init_background('*',WIDTH, HEIGHT) 
-        get_input()       
+        get_input()    
+        draw(0,0,symbols=mario_level_hash_map)   
+        #draw(0,0,symbols=mario_background_hash_map)    
         draw(WIDTH/2,HEIGHT/2,symbol='c')
         draw(1,1,symbol='L')
         draw(WIDTH,HEIGHT,symbol='R')
