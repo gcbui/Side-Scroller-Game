@@ -41,7 +41,8 @@ def game():
 ,tuple([4,6]):'0',tuple([6,6]):'0',tuple([4,7]):'~',tuple([6,7]):'~'}
 
     for num in range(10000):
-        current_frame.init_background('*',width, height)        
+        current_frame.init_background('*',width, height)
+        draw(width/5, height/3, symbol='k')
         draw(width/2,height/2,symbol='c')
         draw(1,1,symbol='L')
         draw(width,height,symbol='R')
