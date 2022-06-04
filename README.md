@@ -57,3 +57,4 @@ Class
     ImageLoader
         generate_hashmap(pixel_height, pixel_width,scaled_multiplier):
             Index_of_char_map= int((len(char_density_ranking) / 256)*gray_scale_value)
+
