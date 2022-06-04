@@ -101,6 +101,7 @@ def game():
         draw(0,0,symbols=mario_level_hash_map)   
         #draw(0,0,symbols=mario_background_hash_map)    
         draw(WIDTH/2,HEIGHT/2,symbol='c')
+        draw(WIDTH/5, HEIGHT/3, symbol='k')
         draw(1,1,symbol='L')
         draw(WIDTH,HEIGHT,symbol='R')
         draw(WIDTH,1,symbol='d')
