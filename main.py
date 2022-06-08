@@ -4,7 +4,7 @@ from image_loader import ImageLoader
 
 HEIGHT = 0 #40 characters
 WIDTH = 0 #172 characters
-SKIP_LINES = 2
+SKIP_LINES = 0
 HEIGHT -= SKIP_LINES
 WORLD_X = 5
 WORLD_Y = 5
@@ -35,7 +35,7 @@ def update_frame_dimensions():
     # of the terminal
     global WIDTH
     global HEIGHT
-    size = os.get_terminal_size()
+    size = os.get_terminal_size()   # gets width and length of terminal in terms of number of characters
     WIDTH = size[0]
     HEIGHT = size[1]
 
@@ -90,16 +90,20 @@ def game():
                           tuple([4,6]):'0',tuple([6,6]):'0',tuple([4,7]):'~',tuple([6,7]):'~'}
     object_hash_map = {tuple([1,1]):'_', tuple([2,1]):'_', tuple([3,1]):'_',tuple([1,2]):'|',tuple([3,2]):'|',tuple([1,3]):'_',tuple([2,3]):'_', tuple([3,3]):'_'}
     print("--------------LOADING LEVEL--------------")
-    mario_background_image_loader = ImageLoader(path = "image_data/unnamed.png")
-    mario_level_image_loader = ImageLoader(path = "image_data/mario_background.jpg")
-    mario_level_hash_map = mario_level_image_loader.generate_hashmap(invert_colors = True,scale_x=0.5, scale_y=0.3)
-    mario_background_hash_map = mario_background_image_loader.generate_hashmap(invert_colors = True,scale_x=0.5, scale_y=0.5)
+    #mario_background_image_loader = ImageLoader(path = "image_data/unnamed.png")
+    #mario_level_image_loader = ImageLoader(path = "image_data/mario_background.jpg")
+    test = ImageLoader(path = "image_data/94-946065_dog-pixel-art-easy-hd-png-download.png")
+
+    #mario_level_hash_map = mario_level_image_loader.generate_hashmap(invert_colors = True,scale_x=0.5, scale_y=0.3)
+    #mario_background_hash_map = mario_background_image_loader.generate_hashmap(invert_colors = False,scale_x=1, scale_y=1)
+    test_hash_map = test.generate_hashmap(invert_colors = False,scale_x=.2, scale_y=.3)
     while True:
         update_frame_dimensions()
         current_frame.init_background('*',WIDTH, HEIGHT) 
         get_input()    
-        draw(0,0,symbols=mario_level_hash_map)   
+        #draw(0,0,symbols=mario_level_hash_map)   
         #draw(0,0,symbols=mario_background_hash_map)    
+        draw(0,0,symbols=test_hash_map)   
         draw(WIDTH/2,HEIGHT/2,symbol='c')
         draw(WIDTH/5, HEIGHT/3, symbol='k')
         draw(1,1,symbol='L')
@@ -110,9 +114,10 @@ def game():
         draw(1,HEIGHT/2,symbols=object_hash_map)
         render_frame()
 
+
+
+
 game()
-
-
     
 
 

@@ -3,7 +3,7 @@ import cv2
 class ImageLoader:
     def __init__(self,path="image_data/unnamed.png"):
 
-        self.char_density_ranking= "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. "
+        self.char_density_ranking= "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. "    #highest to lowest based on ascii density
 
         self.path = path
         self.img = cv2.imread(self.path)
