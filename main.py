@@ -4,7 +4,7 @@ from image_loader import ImageLoader
 
 HEIGHT = 0 #40 characters
 WIDTH = 0 #172 characters
-SKIP_LINES = 0
+SKIP_LINES = 2
 HEIGHT -= SKIP_LINES
 WORLD_X = 5
 WORLD_Y = 5
